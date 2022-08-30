@@ -10,6 +10,7 @@
   display: block;
   position: relative;
   margin: 5px 1%;
+  border-radius: 5px;
 }
 
 .noteBlock:nth-child(3n + 1) {
@@ -21,12 +22,20 @@
   font-weight: bold;
   font-size: 18px;
   width: 100%;
-  height: 50px;
-  border: none;
+  height: 40px;
+  border-radius: 5px;
+  cursor: context-menu;
+  z-index: -1;
+}
+
+.openCollapse {
+  border-bottom: 2px solid rgb(50, 50, 50);
+  border-radius: 5px 5px 0px 0px;
 }
 
 .btnText {
   margin: auto;
+  padding-left: 10px;
 }
 
 .deleteBtn {
@@ -36,14 +45,17 @@
   color: rgba(0, 0, 0, 0.5);
   height: 20px;
   max-width: 20px;
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 .deleteBtn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
   color: rgba(0, 0, 0, 1);
 }
 
 .note {
-  background-color: #f06292;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .hidden {

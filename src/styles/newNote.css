@@ -35,9 +35,18 @@
 .colorBtn {
   float: left;
   border: none;
-  padding: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
   border-radius: 50%;
   margin: 5px 2px 2px 2px;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.colorBtn:hover {
+  opacity: 0.8;
 }
 
 .colorBtn:nth-child(3) {
@@ -47,13 +56,26 @@
 .submitBtn {
   float: right;
   border: 2px solid rgb(0, 175, 0);
-  background-color: #44c767;
+  background-color: rgb(68, 199, 103);
   color: white;
   font-weight: bold;
   font-size: 14px;
   padding: 8px 40px;
   margin: 5px 15px 2px 2px;
   border-radius: 20px;
+}
+
+.tick {
+  font-weight: bolder;
+  font-size: 16px;
+  height: 20px;
+  width: 20px;
+  opacity: 0.7;
+}
+
+.submitBtn:hover {
+  background-color: rgba(68, 199, 103, 0.9);
+  border: 2px solid green;
 }
 
 @media (max-width: 820px) {
@@ -68,7 +90,9 @@
   }
 
   .colorBtn {
-    padding: 17px;
+    width: 34px;
+    height: 34px;
+    padding: 7px;
     margin: 8px 2px 2px 2px;
   }
 
@@ -88,7 +112,9 @@
   }
 
   .colorBtn {
-    padding: 13px;
+    width: 26px;
+    height: 26px;
+    padding: 3px;
     margin: 12px 2px 2px 2px;
   }
 

@@ -9,7 +9,7 @@ export const notesSlice = createSlice({
         title: "Note 1",
         note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
         noteColor: "#BA68C8",
-        isHidden: false,
+        isHidden: true,
       },
       {
         id: "2",
@@ -23,7 +23,7 @@ export const notesSlice = createSlice({
         title: "Note 3",
         note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
         noteColor: "#4FC3F7",
-        isHidden: false,
+        isHidden: true,
       },
       {
         id: "4",
@@ -76,7 +76,7 @@ export const notesSlice = createSlice({
     changeIsHidden: {
       reducer: (state, action) => {
         const note = state.notes.find((note) => note.id === action.payload);
-        note.isHidden = !note.isHidden;
+        if (note) note.isHidden = !note.isHidden;
       },
     },
   },

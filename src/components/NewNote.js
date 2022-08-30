@@ -4,10 +4,11 @@ import { addNote } from "../redux/notes/notesSlice";
 import "../styles/newNote.css";
 
 function NewNote() {
+  const colors = ["#F06292", "#BA68C8", "#FFD54F", "#4FC3F7", "#AED581"];
   const [newNote, setNewNote] = useState({
     title: "",
     note: "",
-    noteColor: "",
+    noteColor: "#BA68C8",
   });
   const dispatch = useDispatch();
 
@@ -24,7 +25,7 @@ function NewNote() {
     setNewNote({
       title: "",
       note: "",
-      noteColor: "#F06292",
+      noteColor: "#BA68C8",
     });
   };
   return (
@@ -51,41 +52,18 @@ function NewNote() {
           })
         }
       />
-      <button
-        className="colorBtn"
-        type="button"
-        value={"#F06292"}
-        style={{ background: "#F06292" }}
-        onClick={handleClick}
-      ></button>
-      <button
-        className="colorBtn"
-        type="button"
-        value={"#BA68C8"}
-        style={{ background: "#BA68C8" }}
-        onClick={handleClick}
-      ></button>
-      <button
-        className="colorBtn"
-        type="button"
-        value={"#FFD54F"}
-        style={{ background: "#FFD54F" }}
-        onClick={handleClick}
-      ></button>
-      <button
-        className="colorBtn"
-        type="button"
-        value={"#4FC3F7"}
-        style={{ background: "#4FC3F7" }}
-        onClick={handleClick}
-      ></button>
-      <button
-        className="colorBtn"
-        type="button"
-        value={"#AED581"}
-        style={{ background: "#AED581" }}
-        onClick={handleClick}
-      ></button>
+      {colors.map((color, index) => (
+        <button
+          key={index}
+          className="colorBtn"
+          type="button"
+          value={color}
+          style={{ background: color }}
+          onClick={handleClick}
+        >
+          {newNote.noteColor === color ? "\u2713" : ""}
+        </button>
+      ))}
       <button className="submitBtn" type="submit">
         ADD
       </button>

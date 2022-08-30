@@ -28,7 +28,7 @@ function Notes() {
         <div key={index} className="noteBlock">
           <div
             style={{ background: note.noteColor }}
-            className="collapseBtn"
+            className={`collapseBtn ${note.isHidden ? "" : "openCollapse"}`}
             onClick={() => handleClickCollapse(note.id)}
           >
             <div className="btnText">{note.title}</div>
@@ -36,14 +36,13 @@ function Notes() {
               className="deleteBtn"
               value={note.id}
               onClick={handleClickDelete}
-              style={{ background: note.noteColor }}
             >
               X
             </button>
           </div>
           <div
             style={{ background: note.noteColor }}
-            className={note.isHidden ? "hidden" : ""}
+            className={note.isHidden ? "hidden" : "note"}
           >
             {note.note}
           </div>
