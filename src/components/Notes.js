@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeNote } from "../redux/notes/notesSlice";
+import { removeNote, changeIsHidden } from "../redux/notes/notesSlice";
 import "../styles/notes.css";
 
 function Notes() {
@@ -14,8 +14,12 @@ function Notes() {
   const dispatch = useDispatch();
   console.log(notes);
 
-  const deleteNote = (id) => {
-    dispatch(removeNote(id));
+  const handleClickCollapse = (id) => {
+    dispatch(changeIsHidden(id));
+  };
+
+  const handleClickDelete = (e) => {
+    dispatch(removeNote(e.target.value));
   };
 
   return (
@@ -25,18 +29,22 @@ function Notes() {
           <div
             style={{ background: note.noteColor }}
             className="collapseBtn"
-            onClick={() => console.log("efyıesgfoua")}
+            onClick={() => handleClickCollapse(note.id)}
           >
             <div className="btnText">{note.title}</div>
             <button
               className="deleteBtn"
-              onClick={() => deleteNote(note.id)}
+              value={note.id}
+              onClick={handleClickDelete}
               style={{ background: note.noteColor }}
             >
               X
             </button>
           </div>
-          <div style={{ background: note.noteColor }} className="hidden">
+          <div
+            style={{ background: note.noteColor }}
+            className={note.isHidden ? "hidden" : ""}
+          >
             {note.note}
           </div>
         </div>
