@@ -4,4 +4,6 @@
 
 ```sh
 React
+Redux
+Redux Toolkit
 ```
