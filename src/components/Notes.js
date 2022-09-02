@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeNote, changeIsHidden } from "../redux/notes/notesSlice";
 import "../styles/notes.css";
 
 function Notes() {
   const notes = useSelector((state) => state.notes.notes);
+  useEffect(() => {
+    localStorage.setItem("notes",JSON.stringify(notes))
+  })
   const searchKey = useSelector((state) => state.notes.searchKey);
   const filteredNotes = notes.filter(
     (note) =>
@@ -12,7 +15,6 @@ function Notes() {
       note.note.toLowerCase().includes(searchKey.toLowerCase())
   );
   const dispatch = useDispatch();
-  console.log(notes);
 
   const handleClickCollapse = (id) => {
     dispatch(changeIsHidden(id));

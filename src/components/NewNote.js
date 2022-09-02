@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNote } from "../redux/notes/notesSlice";
 import "../styles/newNote.css";
 
 function NewNote() {
   const colors = ["#F06292", "#BA68C8", "#FFD54F", "#4FC3F7", "#AED581"];
+  const [noteColor, setNoteColor] = useState(
+    localStorage.getItem("noteColor")
+      ? localStorage.getItem("noteColor")
+      : "#BA68C8"
+  );
+  useEffect(() => {
+    localStorage.setItem("noteColor", noteColor);
+  }, [noteColor]);
+
   const [newNote, setNewNote] = useState({
     title: "",
     note: "",
-    noteColor: "#BA68C8",
+    noteColor: noteColor,
   });
   const dispatch = useDispatch();
 
@@ -16,6 +25,7 @@ function NewNote() {
     setNewNote((preState) => {
       return { ...preState, noteColor: e.target.value };
     });
+    setNoteColor(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +35,7 @@ function NewNote() {
     setNewNote({
       title: "",
       note: "",
-      noteColor: "#BA68C8",
+      noteColor: noteColor,
     });
   };
   return (

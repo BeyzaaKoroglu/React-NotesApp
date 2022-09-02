@@ -3,43 +3,31 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 export const notesSlice = createSlice({
   name: "notes",
   initialState: {
-    notes: [
-      {
-        id: "1",
-        title: "Note 1",
-        note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
-        noteColor: "#BA68C8",
-        isHidden: true,
-      },
-      {
-        id: "2",
-        title: "Note 2",
-        note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
-        noteColor: "#F06292",
-        isHidden: true,
-      },
-      {
-        id: "3",
-        title: "Note 3",
-        note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
-        noteColor: "#4FC3F7",
-        isHidden: true,
-      },
-      {
-        id: "4",
-        title: "Note 4",
-        note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
-        noteColor: "#FFD54F",
-        isHidden: true,
-      },
-      {
-        id: "5",
-        title: "Note 5",
-        note: "fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa fduofhpıa",
-        noteColor: "#AED581",
-        isHidden: true,
-      },
-    ],
+    notes: localStorage.getItem("notes")
+      ? JSON.parse(localStorage.getItem("notes"))
+      : [
+          {
+            id: "1",
+            title: "Note 1",
+            note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            noteColor: "#BA68C8",
+            isHidden: false,
+          },
+          {
+            id: "2",
+            title: "Note 2",
+            note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            noteColor: "#F06292",
+            isHidden: true,
+          },
+          {
+            id: "3",
+            title: "Note 3",
+            note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            noteColor: "#4FC3F7",
+            isHidden: false,
+          },
+        ],
     searchKey: "",
   },
   reducers: {
